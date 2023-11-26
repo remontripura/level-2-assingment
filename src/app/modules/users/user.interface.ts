@@ -1,3 +1,5 @@
+
+
 export type Order = {
   productName: string;
   price: number;
@@ -5,7 +7,8 @@ export type Order = {
 };
 
 export type User = {
-  userId: string;
+  userName: string;
+  username: string;
   password: string;
   fullname: {
     firstName: string;
