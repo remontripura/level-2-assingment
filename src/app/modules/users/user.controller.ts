@@ -12,7 +12,10 @@ const createUser = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (err) {
-    console.log(err);
+    res.status(400).json({
+      success: false,
+      messege: "User not found",
+    });
   }
 };
 
@@ -26,14 +29,16 @@ const getAllUsers = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (err) {
-    console.log(err);
+    res.status(400).json({
+      success: false,
+      messege: "User not found",
+    });
   }
 };
 // get single users
 const getSpecificUsers = async (req: Request, res: Response) => {
   try {
     const { _id } = req.params;
-    console.log(_id);
     const result = await UserService.getSpecificUserFromDb(_id);
     res.status(200).json({
       success: true,
@@ -41,7 +46,10 @@ const getSpecificUsers = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (err) {
-    console.log(err);
+    res.status(400).json({
+      success: false,
+      messege: "User not found",
+    });
   }
 };
 // update single users
@@ -57,12 +65,34 @@ const updateSpecificUsers = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (err) {
-    console.log(err);
+    res.status(400).json({
+      success: false,
+      messege: "User not found",
+    });
+  }
+};
+
+
+const deleteSpecificUsers = async (req: Request, res: Response) => {
+  try {
+    const { userId } = req.params;
+    const result = await UserService.deleteSpecificUserFromDb(userId);
+    res.status(200).json({
+      success: true,
+      messege: "delete successfully",
+      data: result,
+    });
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+      messege: "User not found",
+    });
   }
 };
 export const UserController = {
   createUser,
   getAllUsers,
   getSpecificUsers,
-  updateSpecificUsers
+  updateSpecificUsers,
+  deleteSpecificUsers
 };

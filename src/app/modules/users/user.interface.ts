@@ -1,5 +1,3 @@
-
-
 export type Order = {
   productName: string;
   price: number;
@@ -23,6 +21,7 @@ export type User = {
   email: string;
   isActive: boolean;
   hobbies: string[];
-  address: Address,
+  address: Address;
   orders: Order[];
+  isDelete: boolean;
 };
