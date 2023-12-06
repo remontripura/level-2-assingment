@@ -4,7 +4,8 @@ import { User } from "./user.interface";
 
 const createUser = async (req: Request, res: Response) => {
   try {
-    const {user: userData} = req.body;
+    const userData = req.body;
+    
     const result = await UserService.createAUser(userData);
     res.status(200).json({
       success: true,
@@ -38,8 +39,8 @@ const getAllUsers = async (req: Request, res: Response) => {
 // get single users
 const getSpecificUsers = async (req: Request, res: Response) => {
   try {
-    const { _id } = req.params;
-    const result = await UserService.getSpecificUserFromDb(_id);
+    const { userId } = req.params;
+    const result = await UserService.getSpecificUserFromDb(userId);
     res.status(200).json({
       success: true,
       messege: "get single user successfully",

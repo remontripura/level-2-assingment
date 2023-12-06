@@ -1,7 +1,7 @@
 import { User } from "./user.interface";
 import { UserModel } from "../users.schemaModel";
 
-const createAUser = async (user: User) => {
+const createAUser = async (user : any) => {
   console.log(user);
   const result = await UserModel.create(user);
   return result;
@@ -12,15 +12,14 @@ const getAllUserFromDb = async () => {
   return result;
 };
 
-const getSpecificUserFromDb = async (_id: string) => {
-  const result = await UserModel.findOne({ _id }).select("-password");
+const getSpecificUserFromDb = async (userId: string) => {
+  const result = await UserModel.findOne({ userId });
   return result;
 };
 
 const updateSpecificUserFromDb = async (userId: string, users: User) => {
   const {
     username,
-    password,
     fullname,
     age,
     email,
