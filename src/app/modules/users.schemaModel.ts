@@ -13,7 +13,7 @@ const userSchema = new Schema<User>({
   userId: { type: Number, required: true },
   username: { type: String, required: true },
   password: { type: String, required: true },
-  fullname: {
+  fullName: {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
   },

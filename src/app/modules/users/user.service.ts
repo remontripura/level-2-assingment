@@ -20,7 +20,7 @@ const getSpecificUserFromDb = async (userId: string) => {
 const updateSpecificUserFromDb = async (userId: string, users: User) => {
   const {
     username,
-    fullname,
+    fullName,
     age,
     email,
     isActive,
@@ -33,7 +33,7 @@ const updateSpecificUserFromDb = async (userId: string, users: User) => {
     {
       $set: {
         username,
-        fullname,
+        fullName,
         age,
         email,
         isActive,
